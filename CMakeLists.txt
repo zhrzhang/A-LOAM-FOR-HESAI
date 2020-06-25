@@ -40,7 +40,7 @@ catkin_package(
 add_executable(ascanRegistration src/scanRegistration.cpp)
 target_link_libraries(ascanRegistration ${catkin_LIBRARIES} ${PCL_LIBRARIES})
 
-add_executable(HscanRegistration src/scanRegistration.cpp)
+add_executable(HscanRegistration scanRegistration.cpp)
 target_link_libraries(HscanRegistration ${catkin_LIBRARIES} ${PCL_LIBRARIES})
 
 add_executable(alaserOdometry src/laserOdometry.cpp)

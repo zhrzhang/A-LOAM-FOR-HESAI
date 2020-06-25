@@ -186,15 +186,21 @@ void laserCloudHandler(const sensor_msgs::PointCloud2ConstPtr &laserCloudMsg)
         }
 	else if (N_SCANS == 40)
 	{
-	    if (angle >= -14 && angle <= -6)
-		scanID = int((angle + 14) + 2.5);
-	    else if (angle > -6 && angle <= 2)
-		scanID = int((angle + 6) * 3.0 + 10.5);
-	    else if (angle > 2)
-		scanID = int((0.3289 * angle + 34.2368) + 0.5);
-	    else // (angle < -14) 
-		scanID = int((0.18132 * angle + 4.50549) + 0.5);
-	    if (angle > 15 || angle < -25 || scanID > (N_SCANS - 1) || scanID < 0)
+	    // if (angle >= -14 && angle <= -6)
+		// scanID = int((angle + 14) + 2.5);
+	    // else if (angle > -6 && angle <= 2)
+		// scanID = int((angle + 6) * 3.0 + 10.5);
+	    // else if (angle > 2)
+		// scanID = int((0.3289 * angle + 34.2368) + 0.5);
+	    // else // (angle < -14) 
+		// scanID = int((0.18132 * angle + 4.50549) + 0.5);
+        if (angle >= 2)
+            scanID = int((angle + 32.0) + 0.5);
+        else if (angle < 2 && angle >= -6)
+            scanID = int((3.0 * angle + 28.0) + 0.5);
+        else
+            scanID = int((angle + 16.0) + 0.5);
+	    if (angle > 7 || angle < -16 || scanID > (N_SCANS - 1) || scanID < 0)
 	    {
 	    	count--;
 	    	continue;
